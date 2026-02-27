@@ -12,12 +12,11 @@ The Unity Homes Maintenance WhatsApp Chatbot is a convenient service that allows
 
 - **Prepared By:** Unity Homes
 - **Contact Person:** Mr. Alvin
-- **Phone Number:** +254 703 689 202
-- **WhatsApp Chatbot Number:** +254 718 820180
+- **WhatsApp Chatbot Number:** +254 718****0
 
 ### Access Methods
 
-1. **Direct Link:** [https://wa.me/%2B254718820180](https://wa.me/%2B254718820180)
+1. **Direct Link:** [https://wa.me/%2B254718***0](https://wa.me/%2B254718****0)
 2. **QR Code:** Scan the QR code provided in the guide
 
 ---
@@ -188,9 +187,6 @@ When reporting an issue, select from these categories:
 
 ## Support
 
-For additional assistance or video walkthrough:
-
-- **Video Guide:** UH_Video.mp4
 - **Contact:** Mr. Alvin at +254 703 689 202
 
 ---
@@ -205,5 +201,11 @@ The WhatsApp Chatbot uses a secure service from Meta to manage chat communicatio
 **Prepared By:** Unity Homes
 
 
-![Technician 2026-02-27 at 11 27 55 (1)](https://github.com/user-attachments/assets/687c6ea8-f733-4d64-b270-9499a61dc089)
+![Technician](https://github.com/user-attachments/assets/b2a09b8d-04c6-4dd6-8f12-ec49ad778a84)
+![Technician (1)](https://github.com/user-attachments/assets/687c6ea8-f733-4d64-b270-9499a61dc089)
+![Technician (2)](https://github.com/user-attachments/assets/f41f3274-f3af-47da-9a82-5310a562dd4c)
+![Technician (3)](https://github.com/user-attachments/assets/60d09f8e-f78a-4db8-82d4-1066a690a5f2)
+![Technician  (4)](https://github.com/user-attachments/assets/3a8f4aa0-9f8a-4660-8cdb-1eb442ea94cb)
+
+
 
