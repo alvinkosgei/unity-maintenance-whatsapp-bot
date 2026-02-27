@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.all.min.js"></script>
+  <style>
+    .swal2-actions {
+      width: 25% !important;
+    }
+
+    .chassisBtn {
+      display: flex;
+      width: 50% !important;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+    }
+
+    .chassisBtn .swal2-deny {
+      width: 100% !important;
+    }
+
+    .swal2-title {
+      font-size: 1.5rem;
+    }
+    .swal2-confirm.swal2-styled {
+      width: 100% !important;
+    }
+
+    .loading {
+      position: fixed;
+      z-index: 999;
+      height: 2em;
+      width: 2em;
+      overflow: show;
+      margin: auto;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+
+    /* Transparent Overlay */
+    .loading:before {
+      content: '';
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(rgba(20, 20, 20, .8), rgba(0, 0, 0, .8));
+
+      background: -webkit-radial-gradient(rgba(20, 20, 20, .8), rgba(0, 0, 0, .8));
+    }
+
+    /* :not(:required) hides these rules from IE9 and below */
+    .loading:not(:required) {
+      /* hide "loading..." text */
+      font: 0/0 a;
+      color: transparent;
+      text-shadow: none;
+      background-color: transparent;
+      border: 0;
+    }
+
+    .loading:not(:required):after {
+      content: '';
+      display: block;
+      font-size: 10px;
+      width: 1em;
+      height: 1em;
+      margin-top: -0.5em;
+      -webkit-animation: spinner 150ms infinite linear;
+      -moz-animation: spinner 150ms infinite linear;
+      -ms-animation: spinner 150ms infinite linear;
+      -o-animation: spinner 150ms infinite linear;
+      animation: spinner 150ms infinite linear;
+      border-radius: 0.5em;
+      -webkit-box-shadow: rgba(255, 255, 255, 0.75) 1.5em 0 0 0, rgba(255, 255, 255, 0.75) 1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) 0 1.5em 0 0, rgba(255, 255, 255, 0.75) -1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) -1.5em 0 0 0, rgba(255, 255, 255, 0.75) -1.1em -1.1em 0 0, rgba(255, 255, 255, 0.75) 0 -1.5em 0 0, rgba(255, 255, 255, 0.75) 1.1em -1.1em 0 0;
+      box-shadow: rgba(255, 255, 255, 0.75) 1.5em 0 0 0, rgba(255, 255, 255, 0.75) 1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) 0 1.5em 0 0, rgba(255, 255, 255, 0.75) -1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) -1.5em 0 0 0, rgba(255, 255, 255, 0.75) -1.1em -1.1em 0 0, rgba(255, 255, 255, 0.75) 0 -1.5em 0 0, rgba(255, 255, 255, 0.75) 1.1em -1.1em 0 0;
+    }
+
+    /* Animation */
+
+    @-webkit-keyframes spinner {
+      100% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+
+      0% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    @-moz-keyframes spinner {
+      100% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+
+      0% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    @-o-keyframes spinner {
+      100% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+
+      0% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spinner {
+      100% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+
+      0% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <form class="form-horizontal" action="#">
+    <div class="form-group">
+      <label class="control-label col-sm-3" style="padding-top: 0;">Name:</label>
+      <div class="col-sm-7" id="name"></div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-3" style="padding-top: 0;">Phone Number:</label>
+      <div class="col-sm-7" id="contact_number"></div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="email" style="padding-top: 0;">Estate:</label>
+      <div class="col-sm-7" id="estate"></div>
+    </div> 
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="email" style="padding-top: 0;">Address:</label>
+      <div class="col-sm-7" id="address"></div>
+    </div> 
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="email" style="padding-top: 0;">Category:</label>
+      <div class="col-sm-7" id="category"></div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="email" style="padding-top: 0;">Description:</label>
+      <div class="col-sm-7" id="description"></div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="email" style="padding-top: 0;">Reported Date:</label>
+      <div class="col-sm-7" id="reported_date"></div>
+    </div> 
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="email" style="padding-top: 0;">Proposed Date:</label>
+      <div class="col-sm-7" id="proposed_date"></div>
+    </div> 
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="email" style="padding-top: 0;">Proposed Time:</label>
+      <div class="col-sm-7" id="proposed_time"></div>
+    </div> 
+    <div class="form-group" id="divAsDate">
+      <label class="control-label col-sm-3" for="email">Assign Date:</label>
+      <div class="col-sm-7"><input type="date" name="start-date" class="form-control" id="assign_date"></div>
+    </div> 
+    <!-- <div class="form-group"  id="divAsTime">
+      <label class="control-label col-sm-3" for="email">Assign Time:</label>
+      <div class="col-sm-7"><input type="time" id="assign_time" class="form-control" name="start-time"></div>
+    </div>  -->
+    <div class="form-group" id="divAsTime">
+      <label class="control-label col-sm-3" for="email">Assign Time:</label>
+      <div class="col-sm-3">
+        <select class="form-control" id="assign_hour">
+          <option value="">Hour</option>
+          <!-- 0 to 23 -->
+          <script>
+            for (let h = 0; h < 24; h++) {
+              const padded = h.toString().padStart(2, '0');
+              document.write(`<option value="${padded}">${padded}</option>`);
+            }
+          </script>
+        </select>
+      </div>
+      <div class="col-sm-3">
+        <select class="form-control" id="assign_minute">
+          <option value="">Minute</option>
+          <option value="00">00</option>
+          <option value="15">15</option>
+          <option value="30">30</option>
+          <option value="45">45</option>
+        </select>
+      </div>
+    </div>
+
+
+    <div class="form-group" id="techLbl" style="display:none;">
+      <label class="control-label col-sm-3" for="email" style="padding-top: 0;">Assign Technician:</label>
+      <div class="col-sm-7" id="techText"></div>
+    </div> 
+    <div class="form-group" id="ddTech" style="display:none;">
+      <label class="control-label col-sm-3" for="pwd">Assign Technician:</label>
+      <div class="col-sm-7"><select id="techDD" class="form-control "></select></div>
+    </div>
+    <div class="form-group" id="ddStatus" style="display:none;">
+      <label class="control-label col-sm-3" for="pwd">Ticket Status:</label>
+      <div class="col-sm-7">
+        <select id="statusDD" class="form-control ">
+          <option>Open</option>
+          <option>Assign</option>
+          <option>About to be resolved</option>
+          <option>Resolved</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="form-group" id="btnDiv">        
+      <center>      
+        <button id="saveBtn" type="button" class="btn btn-primary" style="align-items: center;width: 130px;" onclick="assignTechnician()">Save</button>
+      </center>
+    </div>
+  </form>
+</div>
+<div class="loading" id="loaderBtn">Loading&#8230;</div>
+</body>
+<script>
+  var OBJ,PAGE
+  var INPUT = <?!= JSON.stringify(obj) ?>
+  
+  homePage()
+  
+
+function homePage()
+{
+  OBJ=INPUT.obj
+  PAGE=INPUT.page
+
+  $("#loaderBtn").show()
+  var rowObj=OBJ.rowObj;
+  var techArr=OBJ.techArr;
+  var address
+
+  if(rowObj.block!="")
+  {
+    address=rowObj.block
+  }
+
+  if(rowObj.phase!="")
+  {
+    if(address=="")
+      address=rowObj.phase
+    else
+      address=address + ", " + rowObj.phase
+  }
+
+  if(rowObj.apartment_no!="")
+  {
+    if(address=="")
+      address=rowObj.apartment_no
+    else
+      address=address + ", " + rowObj.apartment_no
+  }
+
+  if(rowObj.house_no!="")
+  {
+    if(address=="")
+      address=rowObj.house_no
+    else
+      address=address + ", " + rowObj.house_no
+  }
+
+
+  $("#name").text(rowObj.name);
+  $("#contact_number").text(rowObj.contact_number);
+  $("#category").text(rowObj.category);
+  $("#description").text(rowObj.other);
+  $("#reported_date").text(rowObj.reported_date);
+  $("#estate").text(rowObj.estate);
+  $("#address").text(address);  
+  $("#proposed_date").text(rowObj.proposed_date);
+  $("#proposed_time").text(rowObj.proposed_time);
+
+  if(PAGE=="Assign Technician")
+  {
+    $("#ddTech").show()
+    $("#ddStatus").hide()
+
+    var ddStr="<option></option>"
+
+    for(var i=0;i<techArr.length;i++)
+    {
+      ddStr+=`<option value=${techArr[i][1]} data-vname="` + techArr[i][0] + `" >${techArr[i][0]}</option>`
+    }
+
+    $("#techDD").append(ddStr)
+
+    if(rowObj.technician_assigned=="")
+    {
+      $("#techLbl").hide()
+      $("#ddTech").show()
+    }
+    else
+    {
+      $("#techLbl").show()
+      $("#techText").text(rowObj.technician_assigned)
+      $("#ddTech").hide()
+      $('#saveBtn').prop('disabled', true);
+    }
+  }
+  else
+  {
+    $("#ddStatus").show()
+    $("#ddTech").hide()
+
+    $("#techLbl").show()  
+    $("#divAsDate").hide()  
+    $("#divAsTime").hide()  
+
+    $("#techText").text(rowObj.technician_assigned)
+    $('#statusDD').val(rowObj.status).trigger('change')
+  }
+
+
+  
+  $("#loaderBtn").hide()
+}
+
+function assignTechnician()
+{
+  $("#loaderBtn").show()
+  
+  var techNo=$("#techDD").val()
+  var userNo=$("#contact_number").text()
+  var techName=$("#techDD").find(":selected").data("vname");
+  var assignDate=$("#assign_date").val()
+  // var assignTime=$("#assign_time").val()
+  var hour = $("#assign_hour").val();
+  var minute = $("#assign_minute").val();
+  if (!hour || !minute) {
+    failureMsg("Please select both hour and minute.");
+    return;
+  }
+  var assignTime = `${hour}:${minute}`;
+
+
+  if(PAGE=="Assign Technician")
+  {
+    if(techNo=="")
+    {
+      failureMsg("Pleasae select Technician")
+      return;
+    }
+
+    if(userNo=="")
+    {
+      failureMsg("Pleasae select end user contact number.")
+      return;
+    }
+
+    if(!assignDate){
+      failureMsg("Pleasae select Assign Date:.")
+      return;
+    }
+
+    if (!hour || !minute) {
+      failureMsg("Please select both Hour and Minute for Assign Time.");
+      return;
+    }
+    
+    OBJ.rowObj["technician_assigned"]=techName
+    OBJ.rowObj["technician_no"]=techNo
+    OBJ.rowObj["status"]="Assign"
+    
+    OBJ.rowObj["technician_expected_date"]=assignDate
+    OBJ.rowObj["technician_expected_time"]=assignTime
+  }
+  else
+  {
+    var status=$("#statusDD").val()
+    OBJ.rowObj["status"]=status
+
+    if(status=="Open")
+      failureMsg("The ticket status cannot be changed to Open.")
+  }
+
+  // console.log(OBJ.rowObj)
+  // console.log(PAGE)
+  // return
+
+  google.script.run
+      .withSuccessHandler(successMsg)
+      .withFailureHandler(failureMsg)
+      .sendMsgByPopup(OBJ.rowObj)      
+}
+
+function successMsg(msg)
+{
+  Swal.fire({
+    title: msg,
+    icon: "success",
+    showCancelButton: false,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Ok"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      google.script.host.close()
+    }
+  });
+  $("#loaderBtn").hide()
+}
+
+function failureMsg(msg)
+{
+  // console.log(msg)
+  Swal.fire({
+    title: msg,
+    text: "",
+    icon: "error",
+  })
+  $("#loaderBtn").hide()
+}
+</script>
+
+
+
+
+
+</html>
