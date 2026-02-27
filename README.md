@@ -200,6 +200,13 @@ The WhatsApp Chatbot uses a secure service from Meta to manage chat communicatio
 **Last Updated:** 2024
 **Prepared By:** Unity Homes
 
+Client Part:
+![Client (1)](https://github.com/user-attachments/assets/f476ab79-8e86-4d2f-b423-fcdb4505b48f)
+![Client 1](https://github.com/user-attachments/assets/744cc9ab-766b-489f-91b4-da094f9a9613)
+![Client (2)](https://github.com/user-attachments/assets/56a96558-8337-4cce-be1d-7e9dc152d0fc)
+
+
+Technician Part:
 
 ![Technician](https://github.com/user-attachments/assets/b2a09b8d-04c6-4dd6-8f12-ec49ad778a84)
 ![Technician (1)](https://github.com/user-attachments/assets/687c6ea8-f733-4d64-b270-9499a61dc089)
