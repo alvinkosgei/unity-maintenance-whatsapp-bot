@@ -187,7 +187,7 @@ When reporting an issue, select from these categories:
 
 ## Support
 
-- **Contact:** Mr. Alvin at +254 703 689 202
+- Real time
 
 ---
 
